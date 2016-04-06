@@ -16,10 +16,8 @@ Maestrano['default'].configure do |config|
   #
   if Rails.env.development?
     config.app.host = 'http://localhost:3001'
-  elsif Rails.env.uat?
-    config.app.host = 'http://connector-sagelive-uat.herokuapp.com'
   else
-    config.app.host = 'http://connector-sagelive.herokuapp.com'
+    config.app.host = 'https://connector-sagelive.herokuapp.com'
   end
 
   # ==> App ID & API key
@@ -180,10 +178,8 @@ Maestrano['maestrano-uat'].configure do |config|
   config.environment = 'uat'
   if Rails.env.development?
     config.app.host = 'http://localhost:3001'
-  elsif Rails.env.uat?
-    config.app.host = 'http://connector-sagelive-uat.herokuapp.com'
   else
-    config.app.host = 'http://connector-sagelive.herokuapp.com'
+    config.app.host = 'https://connector-sagelive-uat.herokuapp.com'
   end
 
   config.api.host = 'https://uat.maestrano.io'

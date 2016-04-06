@@ -25,12 +25,12 @@
             - if @organization.oauth_uid
               Your SageLive account <strong>#{@organization.oauth_name} (#{@organization.oauth_uid})</strong> is currently linked
             - else
-              Your SalesForce account is not linked
+              Your SageLive account is not linked
         .col-md-2.col-md-offset-3.text-center.link-step-action
           - if @organization.oauth_uid
             = link_to "Disconnect", signout_omniauth_path(organization_id: @organization.id), class: "btn btn-warning btn-lg #{is_admin ? '' : 'disabled'}"
           - else
-            = link_to "Link to SalesForce", "/auth/salesforce/request?org_uid=#{@organization.uid}", class: "btn btn-warning btn-lg" if is_admin
+            = link_to "Link to SageLive", "/auth/salesforce/request?org_uid=#{@organization.uid}", class: "btn btn-warning btn-lg" if is_admin
 
       .spacer1
 
