@@ -1,0 +1,5 @@
+connec_api_id: API_ID
+connec_api_key: API_KEY
+sagelive_client_id: SAGELIVE_API_ID
+sagelive_client_secret: SAGELIVE_API_SECRET
+REDIS_URL: redis://localhost:6379/0/connector-sagelive

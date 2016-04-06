@@ -1,0 +1,5 @@
+connec_api_id: 'app-15un'
+connec_api_key: 'ad59a90f5588ea7294d2bcf379ea48d1ddc50ac48c105c0d33ec1840daab9403'
+sagelive_client_id: '3MVG9ZL0ppGP5UrArAD5vwLgpFX7mTJRjlw8MognnV6pYd4GWFjyVm_u88BCgBvhmMbyZ9vDrumarZVc2Zexd'
+sagelive_client_secret: '6336611399361685447'
+REDIS_URL: redis://localhost:6379/0/connector-sagelive

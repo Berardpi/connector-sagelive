@@ -1,0 +1,733 @@
+  [1m[36m (0.0ms)[0m  [1mSELECT name FROM sqlite_master WHERE type = 'table' AND NOT name = 'sqlite_sequence'[0m
+  [1m[35mSavepoint (3.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (3.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "uid", "oauth_uid", "sync_enabled", "created_at", "updated_at") VALUES ('---
+:item: true
+', 'My company', 'default', 'cld_333', 'lala', 't', '2016-03-02 08:00:35.480000', '2016-03-02 08:00:35.480000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by Maestrano::ConnecController#notifications as HTML
+  Parameters: {"items"=>[{"group_id"=>"cld_333", "name"=>"Shovel"}], "tenant"=>"default"}
+Received notification from Connec!: {"items"=>[{"group_id"=>"cld_333", "name"=>"Shovel"}], "tenant"=>"default", "controller"=>"maestrano/connec", "action"=>"notifications"}
+  [1m[36mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."uid" = 'cld_333' AND "organizations"."tenant" = 'default' LIMIT 1[0m
+org: cld_333 (default). Msg: Received entity from Connec! webhook: Entity=items, Data={"group_id"=>"cld_333", "name"=>"Shovel"}
+error processing notification Not implemented - /home/bruno/Workspace/maestrano-connector-rails/app/models/maestrano/connector/rails/complex_entity.rb:49:in `external_model_to_connec_model'
+/home/bruno/Workspace/maestrano-connector-rails/app/models/maestrano/connector/rails/complex_entity.rb:90:in `consolidate_and_map_data'
+/home/bruno/Workspace/maestrano-connector-rails/app/controllers/maestrano/connec_controller.rb:19:in `block in notifications'
+org/jruby/RubyArray.java:1560:in `each'
+/home/bruno/Workspace/maestrano-connector-rails/app/controllers/maestrano/connec_controller.rb:11:in `block in notifications'
+org/jruby/RubyHash.java:1339:in `each'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/action_controller/metal/strong_parameters.rb:185:in `each_pair'
+/home/bruno/Workspace/maestrano-connector-rails/app/controllers/maestrano/connec_controller.rb:7:in `notifications'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/abstract_controller/base.rb:198:in `process_action'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+org/jruby/RubyProc.java:318:in `call'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/activesupport-4.2.5/lib/active_support/callbacks.rb:117:in `call'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/activesupport-4.2.5/lib/active_support/callbacks.rb:555:in `block in compile'
+org/jruby/RubyProc.java:318:in `call'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/activesupport-4.2.5/lib/active_support/callbacks.rb:505:in `call'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/activesupport-4.2.5/lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/activesupport-4.2.5/lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/activesupport-4.2.5/lib/active_support/callbacks.rb:81:in `run_callbacks'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/abstract_controller/callbacks.rb:19:in `process_action'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/activesupport-4.2.5/lib/active_support/notifications.rb:164:in `block in instrument'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/activesupport-4.2.5/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/activesupport-4.2.5/lib/active_support/notifications.rb:164:in `instrument'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/activerecord-4.2.5/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/abstract_controller/base.rb:137:in `process'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionview-4.2.5/lib/action_view/rendering.rb:30:in `process'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/action_controller/test_case.rb:639:in `process'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/action_controller/test_case.rb:67:in `process'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/actionpack-4.2.5/lib/action_controller/test_case.rb:520:in `post'
+/home/bruno/Workspace/connector-salesforce/spec/controllers/connec_item_controller_spec.rb:12:in `block in subject'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/memoized_helpers.rb:295:in `block in subject'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/memoized_helpers.rb:157:in `block in fetch_or_store'
+org/jruby/RubyHash.java:1177:in `fetch'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/memoized_helpers.rb:157:in `block in fetch_or_store'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-support-3.4.1/lib/rspec/support/reentrant_mutex.rb:23:in `synchronize'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/memoized_helpers.rb:156:in `block in fetch_or_store'
+org/jruby/RubyHash.java:1177:in `fetch'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/memoized_helpers.rb:155:in `fetch_or_store'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/memoized_helpers.rb:295:in `block in subject'
+/home/bruno/Workspace/connector-salesforce/spec/controllers/connec_item_controller_spec.rb:37:in `block in (root)'
+org/jruby/RubyBasicObject.java:1670:in `instance_exec'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example.rb:236:in `block in run'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example.rb:478:in `block in with_around_and_singleton_context_hooks'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example.rb:435:in `block in with_around_example_hooks'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/hooks.rb:478:in `block in run'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/hooks.rb:618:in `block in run_around_example_hooks_for'
+org/jruby/RubyProc.java:318:in `call'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example.rb:320:in `call'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-rails-3.4.2/lib/rspec/rails/example/controller_example_group.rb:191:in `block in ControllerExampleGroup'
+org/jruby/RubyBasicObject.java:1670:in `instance_exec'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example.rb:425:in `instance_exec'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/hooks.rb:389:in `execute_with'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/hooks.rb:620:in `block in run_around_example_hooks_for'
+org/jruby/RubyProc.java:318:in `call'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example.rb:320:in `call'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-rails-3.4.2/lib/rspec/rails/adapters.rb:127:in `block in MinitestLifecycleAdapter'
+org/jruby/RubyBasicObject.java:1670:in `instance_exec'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example.rb:425:in `instance_exec'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/hooks.rb:389:in `execute_with'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/hooks.rb:620:in `block in run_around_example_hooks_for'
+org/jruby/RubyProc.java:318:in `call'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example.rb:320:in `call'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/hooks.rb:619:in `run_around_example_hooks_for'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/hooks.rb:478:in `run'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example.rb:435:in `with_around_example_hooks'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example.rb:478:in `with_around_and_singleton_context_hooks'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example.rb:233:in `run'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:581:in `block in run_examples'
+org/jruby/RubyArray.java:2300:in `map'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:577:in `run_examples'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:543:in `run'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:544:in `block in run'
+org/jruby/RubyArray.java:2300:in `map'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:544:in `run'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:544:in `block in run'
+org/jruby/RubyArray.java:2300:in `map'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:544:in `run'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:544:in `block in run'
+org/jruby/RubyArray.java:2300:in `map'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:544:in `run'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:544:in `block in run'
+org/jruby/RubyArray.java:2300:in `map'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:544:in `run'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:544:in `block in run'
+org/jruby/RubyArray.java:2300:in `map'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/example_group.rb:544:in `run'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/runner.rb:119:in `block in run_specs'
+org/jruby/RubyArray.java:2300:in `map'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/runner.rb:119:in `block in run_specs'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/configuration.rb:1680:in `with_suite_hooks'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/runner.rb:118:in `block in run_specs'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/reporter.rb:77:in `report'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/runner.rb:117:in `run_specs'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/runner.rb:93:in `run'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/runner.rb:78:in `run'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/lib/rspec/core/runner.rb:45:in `invoke'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/gems/rspec-core-3.4.3/exe/rspec:4:in `<top>'
+org/jruby/RubyKernel.java:955:in `load'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/bin/rspec:1:in `<eval>'
+org/jruby/RubyKernel.java:976:in `eval'
+/home/bruno/.rvm/gems/jruby-9.0.5.0@connector-salesforce/bin/jruby_executable_hooks:15:in `<top>'
+Completed 200 OK in 44ms (ActiveRecord: 1.0ms)
+  [1m[36m (1.0ms)[0m  [1mSELECT name FROM sqlite_master WHERE type = 'table' AND NOT name = 'sqlite_sequence'[0m
+  [1m[35mSavepoint (6.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (6.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:26.972000', '2016-04-06 14:09:26.972000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:27.068000', '2016-04-06 14:09:27.068000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:27.120000', '2016-04-06 14:09:27.120000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SynchronizationsController#index as HTML
+  [1m[36mMaestrano::Connector::Rails::Organization Load (2.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."uid" IS NULL AND "organizations"."tenant" IS NULL LIMIT 1[0m
+  Rendered synchronizations/index.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 80ms (Views: 51.6ms | ActiveRecord: 2.0ms)
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:27.303000', '2016-04-06 14:09:27.303000')[0m
+  [1m[35mSavepoint (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by SynchronizationsController#index as HTML
+  Rendered synchronizations/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 23ms (Views: 4.5ms | ActiveRecord: 1.0ms)
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "synchronizations" ("organization_id", "status", "created_at", "updated_at") VALUES (1, 'SUCCESS', '2016-04-06 14:09:27.430000', '2016-04-06 14:09:27.430000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mMaestrano::Connector::Rails::Synchronization Load (0.0ms)[0m  SELECT  "synchronizations".* FROM "synchronizations" WHERE "synchronizations"."organization_id" = 1  ORDER BY "synchronizations"."updated_at" DESC LIMIT 40
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:27.502000', '2016-04-06 14:09:27.502000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+org:  (default). Msg: Fetching SageLive external_names
+org:  (default). Msg: Received data: Source=SageLive, Entity=external_name, Response=
+  [1m[35mSavepoint (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:27.588000', '2016-04-06 14:09:27.588000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "synchronizations" ("organization_id", "status", "updated_at", "created_at") VALUES (1, 'SUCCESS', '2016-04-06 13:09:27.577000', '2016-04-06 14:09:27.620000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:27.641000', '2016-04-06 14:09:27.641000')[0m
+  [1m[35mSavepoint (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+org:  (default). Msg: Fetching SageLive external_names
+org:  (default). Msg: Received data: Source=SageLive, Entity=external_name, Response=[nil, nil, nil]
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-07 00:00:00.000000', '2016-04-07 00:00:00.000000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "synchronizations" ("organization_id", "status", "updated_at", "created_at") VALUES (1, 'SUCCESS', '2016-04-06 23:00:00.000000', '2016-04-07 00:00:00.000000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-07 00:00:00.000000', '2016-04-07 00:00:00.000000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+org:  (default). Msg: Fetching SageLive external_names
+org:  (default). Msg: Received data: Source=SageLive, Entity=external_name, Response=[]
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:27.855000', '2016-04-06 14:09:27.855000')[0m
+  [1m[35mSavepoint (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSavepoint (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "synchronizations" ("organization_id", "status", "updated_at", "created_at") VALUES (1, 'SUCCESS', '2016-04-06 13:09:27.844000', '2016-04-06 14:09:27.893000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:27.914000', '2016-04-06 14:09:27.914000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+org:  (default). Msg: Fetching SageLive external_names
+org:  (default). Msg: Received data: Source=SageLive, Entity=external_name, Response=[{"FirstName"=>"John"}, {"FirstName"=>"John"}, {"FirstName"=>"John"}]
+  [1m[36mSavepoint (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:27.981000', '2016-04-06 14:09:27.981000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+org:  (default). Msg: Fetching SageLive external_names
+org:  (default). Msg: Received data: Source=SageLive, Entity=external_name, Response=
+  [1m[35mSavepoint (5.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:28.051000', '2016-04-06 14:09:28.051000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+org:  (default). Msg: Sending update external_name (id=3456): {} to SageLive
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:28.111000', '2016-04-06 14:09:28.111000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+org:  (default). Msg: Sending create external_name: {} to SageLive
+  [1m[35mSavepoint (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+people: false
+item: true
+', 'My company', 'default', '2016-04-06 14:09:28.221000', '2016-04-06 14:09:28.221000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#update as HTML
+  Parameters: {"id"=>"1", "people"=>true, "item"=>false, "lala"=>true}
+  [1m[36mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1[0m
+  [1m[35mMaestrano::Connector::Rails::User Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL AND "users"."tenant" IS NULL LIMIT 1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.0ms)[0m  UPDATE "organizations" SET "synchronized_entities" = '---
+people: true
+item: false
+', "sync_enabled" = 't', "updated_at" = '2016-04-06 14:09:28.331000' WHERE "organizations"."id" = 1
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] Enqueued Maestrano::Connector::Rails::SynchronizationJob (Job ID: c6ed80f1-7a84-419a-b908-67593c5be95f) to Sidekiq(default) with arguments: gid://connector-sagelive/Maestrano::Connector::Rails::Organization/1, {}
+Redirected to /home/index
+Completed 302 Found in 132ms (ActiveRecord: 3.0ms)
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+people: false
+item: true
+', 'My company', 'default', '2016-04-06 14:09:28.430000', '2016-04-06 14:09:28.430000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#update as HTML
+  Parameters: {"id"=>"1", "people"=>true, "item"=>false, "lala"=>true}
+  [1m[36mMaestrano::Connector::Rails::Organization Load (0.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1[0m
+  [1m[35mMaestrano::Connector::Rails::User Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL AND "users"."tenant" IS NULL LIMIT 1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "organizations" SET "synchronized_entities" = '---
+people: true
+item: false
+', "sync_enabled" = 't', "updated_at" = '2016-04-06 14:09:28.495000' WHERE "organizations"."id" = 1
+  [1m[36mSavepoint (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+[ActiveJob] Enqueued Maestrano::Connector::Rails::SynchronizationJob (Job ID: 82d05fbb-5e58-4e47-a15e-efa629249db6) to Sidekiq(default) with arguments: gid://connector-sagelive/Maestrano::Connector::Rails::Organization/1, {}
+Redirected to /home/index
+Completed 302 Found in 68ms (ActiveRecord: 2.0ms)
+  [1m[35mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+people: false
+item: true
+', 'My company', 'default', '2016-04-06 14:09:28.580000', '2016-04-06 14:09:28.580000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#update as HTML
+  Parameters: {"id"=>"1", "people"=>true, "item"=>false, "lala"=>true}
+  [1m[35mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1
+  [1m[36mMaestrano::Connector::Rails::User Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL AND "users"."tenant" IS NULL LIMIT 1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "organizations" SET "synchronized_entities" = '---
+people: true
+item: false
+', "sync_enabled" = 't', "updated_at" = '2016-04-06 14:09:28.648000' WHERE "organizations"."id" = 1[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+[ActiveJob] Enqueued Maestrano::Connector::Rails::SynchronizationJob (Job ID: 65da5e41-2b34-4f6d-b7d8-a5d1f7e68e19) to Sidekiq(default) with arguments: gid://connector-sagelive/Maestrano::Connector::Rails::Organization/1, {}
+Redirected to /home/index
+Completed 302 Found in 69ms (ActiveRecord: 1.0ms)
+  [1m[36mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1[0m
+  [1m[35mSavepoint (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+people: false
+item: true
+', 'My company', 'default', '2016-04-06 14:09:28.734000', '2016-04-06 14:09:28.734000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "organizations" SET "sync_enabled" = 't', "updated_at" = '2016-04-06 14:09:28.763000' WHERE "organizations"."id" = 1
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#update as HTML
+  Parameters: {"id"=>"1", "people"=>false, "item"=>false}
+  [1m[35mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1
+  [1m[36mMaestrano::Connector::Rails::User Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL AND "users"."tenant" IS NULL LIMIT 1[0m
+  [1m[35mSavepoint (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "organizations" SET "synchronized_entities" = '---
+people: false
+item: false
+', "sync_enabled" = 'f', "updated_at" = '2016-04-06 14:09:28.821000' WHERE "organizations"."id" = 1[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to /home/index
+Completed 302 Found in 63ms (ActiveRecord: 4.0ms)
+  [1m[36mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+people: false
+item: true
+', 'My company', 'default', '2016-04-06 14:09:28.897000', '2016-04-06 14:09:28.897000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#update as HTML
+  Parameters: {"id"=>"1", "people"=>true, "item"=>false, "lala"=>true}
+  [1m[36mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1[0m
+  [1m[35mMaestrano::Connector::Rails::User Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL AND "users"."tenant" IS NULL LIMIT 1
+Redirected to /home/index
+Completed 302 Found in 20ms (ActiveRecord: 1.0ms)
+Processing by HomeController#index as HTML
+  [1m[36mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."uid" IS NULL AND "organizations"."tenant" IS NULL LIMIT 1[0m
+  Rendered home/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 27ms (Views: 19.2ms | ActiveRecord: 1.0ms)
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "instance_url", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', 'url', '2016-04-06 14:09:29.025000', '2016-04-06 14:09:29.025000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#redirect_to_external as HTML
+Redirected to http://test.hosturl
+Completed 302 Found in 18ms (ActiveRecord: 0.0ms)
+Processing by HomeController#redirect_to_external as HTML
+  [1m[36mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."uid" IS NULL AND "organizations"."tenant" IS NULL LIMIT 1[0m
+Redirected to https://login.salesforce.com
+Completed 302 Found in 10ms (ActiveRecord: 1.0ms)
+  [1m[35mSavepoint (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:29.147000', '2016-04-06 14:09:29.147000')[0m
+  [1m[35mSavepoint (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#synchronize as HTML
+Redirected to /home/index
+Completed 302 Found in 12ms (ActiveRecord: 0.0ms)
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:29.222000', '2016-04-06 14:09:29.222000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#synchronize as HTML
+Redirected to /home/index
+Completed 302 Found in 10ms (ActiveRecord: 0.0ms)
+  [1m[35mSavepoint (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:29.301000', '2016-04-06 14:09:29.301000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#synchronize as HTML
+[ActiveJob] Enqueued Maestrano::Connector::Rails::SynchronizationJob (Job ID: 1f982c39-5193-4c54-9fee-8fe09aa1f859) to Sidekiq(default) with arguments: gid://connector-sagelive/Maestrano::Connector::Rails::Organization/1, {}
+Redirected to /home/index
+Completed 302 Found in 25ms (ActiveRecord: 0.0ms)
+  [1m[36mSavepoint (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:29.387000', '2016-04-06 14:09:29.387000')
+  [1m[36mSavepoint (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeController#synchronize as HTML
+  Parameters: {"opts"=>"opts"}
+Redirected to /home/index
+Completed 302 Found in 19ms (ActiveRecord: 0.0ms)
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:29.470000', '2016-04-06 14:09:29.470000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeController#synchronize as HTML
+Redirected to /home/index
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms)
+Processing by OauthController#create_omniauth as HTML
+  Parameters: {"state"=>"uid-123", "provider"=>"salesforce"}
+  [1m[36mMaestrano::Connector::Rails::Organization Load (0.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."uid" = 'uid-123' AND "organizations"."tenant" = 'default' LIMIT 1[0m
+Redirected to http://test.host/
+Completed 302 Found in 14ms (ActiveRecord: 0.0ms)
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "uid", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', 'uid-123', '2016-04-06 14:09:29.617000', '2016-04-06 14:09:29.617000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by OauthController#create_omniauth as HTML
+  Parameters: {"state"=>"uid-123", "provider"=>"salesforce"}
+  [1m[36mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."uid" = 'uid-123' AND "organizations"."tenant" = 'default' LIMIT 1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("email", "tenant", "locale", "created_at", "updated_at") VALUES ('lla@mail.com', 'default', 'a', '2016-04-06 14:09:29.698000', '2016-04-06 14:09:29.698000')[0m
+  [1m[35mSavepoint (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSavepoint (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "users" SET "timezone" = 'b', "updated_at" = '2016-04-06 14:09:29.709000' WHERE "users"."id" = 1
+  [1m[36mSavepoint (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mUPDATE "organizations" SET "oauth_name" = 'lala', "updated_at" = '2016-04-06 14:09:29.719000' WHERE "organizations"."id" = 1[0m
+  [1m[35mSavepoint (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "organizations" SET "oauth_uid" = 'idd', "updated_at" = '2016-04-06 14:09:29.737000' WHERE "organizations"."id" = 1
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 82ms (ActiveRecord: 8.0ms)
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "uid", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', 'uid-123', '2016-04-06 14:09:29.775000', '2016-04-06 14:09:29.775000')[0m
+  [1m[35mSavepoint (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by OauthController#create_omniauth as HTML
+  Parameters: {"state"=>"uid-123", "provider"=>"salesforce"}
+  [1m[36mMaestrano::Connector::Rails::Organization Load (0.0ms)[0m  [1mSELECT  "organizations".* FROM "organizations" WHERE "organizations"."uid" = 'uid-123' AND "organizations"."tenant" = 'default' LIMIT 1[0m
+Redirected to http://test.host/
+Completed 302 Found in 14ms (ActiveRecord: 0.0ms)
+Processing by OauthController#create_omniauth as HTML
+  Parameters: {"state"=>"uid-123", "provider"=>"salesforce"}
+  [1m[35mMaestrano::Connector::Rails::Organization Load (0.0ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."uid" = 'uid-123' AND "organizations"."tenant" = 'default' LIMIT 1
+Redirected to http://test.host/
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms)
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "oauth_uid", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', 'oauth_uid', '2016-04-06 14:09:29.864000', '2016-04-06 14:09:29.864000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by OauthController#destroy_omniauth as HTML
+  Parameters: {"organization_id"=>"1"}
+  [1m[35mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1
+Redirected to http://test.host/
+Completed 302 Found in 11ms (ActiveRecord: 1.0ms)
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "oauth_uid", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', 'oauth_uid', '2016-04-06 14:09:29.910000', '2016-04-06 14:09:29.910000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by OauthController#destroy_omniauth as HTML
+  Parameters: {"organization_id"=>"1"}
+  [1m[35mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "organizations" SET "oauth_uid" = NULL, "updated_at" = '2016-04-06 14:09:29.944000' WHERE "organizations"."id" = 1
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/
+Completed 302 Found in 27ms (ActiveRecord: 1.0ms)
+  [1m[35mMaestrano::Connector::Rails::Organization Load (1.0ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = 1 LIMIT 1
+  [1m[36mSavepoint (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "oauth_uid", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', 'oauth_uid', '2016-04-06 14:09:29.973000', '2016-04-06 14:09:29.973000')
+  [1m[36mSavepoint (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by OauthController#destroy_omniauth as HTML
+  Parameters: {"organization_id"=>"5"}
+  [1m[35mMaestrano::Connector::Rails::Organization Load (0.0ms)[0m  SELECT  "organizations".* FROM "organizations" WHERE "organizations"."id" = 5 LIMIT 1
+Redirected to http://test.host/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "uid", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', 'uid-123', '2016-04-06 14:09:30.008000', '2016-04-06 14:09:30.008000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by OauthController#request_omniauth as HTML
+  Parameters: {"provider"=>"salesforce"}
+Redirected to http://test.host/
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "uid", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', 'uid-123', '2016-04-06 14:09:30.047000', '2016-04-06 14:09:30.047000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by OauthController#request_omniauth as HTML
+  Parameters: {"provider"=>"salesforce"}
+Redirected to http://test.host/auth/salesforce?state=uid-123
+Completed 302 Found in 9ms (ActiveRecord: 0.0ms)
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.154000', '2016-04-06 14:09:30.154000')
+  [1m[36mSavepoint (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+org:  (default). Msg: Fetching SageLive PricebookEntries
+org:  (default). Msg: Received data: Source=SageLive, Entity=PricebookEntry, Response=[{"Pricebook2Id"=>"567SQF"}]
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.260000', '2016-04-06 14:09:30.260000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+org:  (default). Msg: Fetching SageLive PricebookEntries
+org:  (default). Msg: Received data: Source=SageLive, Entity=PricebookEntry, Response=[{"Pricebook2Id"=>"567SQF"}]
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.287000', '2016-04-06 14:09:30.287000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "id_maps" ("connec_entity", "external_id", "external_entity", "last_push_to_external", "last_push_to_connec", "organization_id", "created_at", "updated_at") VALUES ('item', '133A', 'pricebookentry', '2016-04-04 14:09:24.645000', '2016-04-05 14:09:24.651000', 1, '2016-04-06 14:09:30.339000', '2016-04-06 14:09:30.339000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+org:  (default). Msg: Sending SageLive PricebookEntries to Connec! items
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.368000', '2016-04-06 14:09:30.368000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "id_maps" ("connec_entity", "external_id", "external_entity", "last_push_to_external", "last_push_to_connec", "organization_id", "created_at", "updated_at") VALUES ('item', '133A', 'pricebookentry', '2016-04-04 14:09:24.645000', '2016-04-05 14:09:24.651000', 1, '2016-04-06 14:09:30.390000', '2016-04-06 14:09:30.390000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "id_maps" ("connec_id", "connec_entity", "external_id", "external_entity", "last_push_to_external", "last_push_to_connec", "organization_id", "created_at", "updated_at") VALUES ('9887eg-3565ef', 'item', '7766DEA', 'product2', '2016-04-04 14:09:24.645000', '2016-04-05 14:09:24.651000', 1, '2016-04-06 14:09:30.407000', '2016-04-06 14:09:30.407000')
+  [1m[36mSavepoint (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+org:  (default). Msg: Sending SageLive PricebookEntries to Connec! items
+  [1m[35mMaestrano::Connector::Rails::IdMap Load (1.0ms)[0m  SELECT  "id_maps".* FROM "id_maps" WHERE "id_maps"."external_entity" = 'product2' AND "id_maps"."external_id" = '7766DEA' AND "id_maps"."organization_id" = 1 LIMIT 1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "id_maps" SET "connec_id" = '9887eg-3565ef', "updated_at" = '2016-04-06 14:09:30.423000' WHERE "id_maps"."id" = 1
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "id_maps" SET "last_push_to_connec" = '2016-04-06 14:09:30.428000', "updated_at" = '2016-04-06 14:09:30.430000' WHERE "id_maps"."id" = 1[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.443000', '2016-04-06 14:09:30.443000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "id_maps" ("connec_id", "connec_entity", "external_id", "external_entity", "last_push_to_external", "last_push_to_connec", "organization_id", "created_at", "updated_at") VALUES ('9887eg-3565ef', 'item', '133A', 'pricebookentry', '2016-04-04 14:09:24.645000', '2016-04-05 14:09:24.651000', 1, '2016-04-06 14:09:30.457000', '2016-04-06 14:09:30.457000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+org:  (default). Msg: Sending SageLive PricebookEntries to Connec! items
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "id_maps" SET "last_push_to_connec" = '2016-04-06 14:09:30.467000', "updated_at" = '2016-04-06 14:09:30.470000' WHERE "id_maps"."id" = 1
+  [1m[36mSavepoint (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Fetching standard pricebook from SalesForce
+Fetching standard pricebook from SalesForce
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.537000', '2016-04-06 14:09:30.537000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+org:  (default). Msg: Sending update external_name (id=3456): {"IsConverted"=>false} to SageLive
+  [1m[36mSavepoint (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.556000', '2016-04-06 14:09:30.556000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+org:  (default). Msg: Not sending update external_name (id=3456): {"IsConverted"=>true} to SageLive: lead is converted
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.573000', '2016-04-06 14:09:30.573000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "id_maps" ("connec_id", "connec_entity", "external_id", "external_entity", "last_push_to_external", "last_push_to_connec", "organization_id", "created_at", "updated_at") VALUES ('aaaa-bbbb', 'organization', '0012800000CaxiJAAR', 'account', '2016-04-04 14:09:24.645000', '2016-04-05 14:09:24.651000', 1, '2016-04-06 14:09:30.590000', '2016-04-06 14:09:30.590000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mMaestrano::Connector::Rails::IdMap Load (1.0ms)[0m  SELECT  "id_maps".* FROM "id_maps" WHERE "id_maps"."connec_entity" = 'organization' AND "id_maps"."external_entity" = 'account' AND "id_maps"."connec_id" = 'aaaa-bbbb' AND "id_maps"."organization_id" = 1 LIMIT 1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.618000', '2016-04-06 14:09:30.618000')
+  [1m[36mSavepoint (1.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+org:  (default). Msg: Sending create not_lead: {"Name"=>"Eric"} to SageLive
+  [1m[35mSavepoint (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.639000', '2016-04-06 14:09:30.639000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+org:  (default). Msg: Sending create lead: {"Name"=>"Eric", "Company"=>"Undefined"} to SageLive
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.705000', '2016-04-06 14:09:30.705000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "id_maps" ("connec_id", "connec_entity", "external_id", "external_entity", "last_push_to_external", "last_push_to_connec", "organization_id", "created_at", "updated_at") VALUES ('aaaa-bbbb', 'organization', '0012800000CaxiJAAR', 'account', '2016-04-04 14:09:24.645000', '2016-04-05 14:09:24.651000', 1, '2016-04-06 14:09:30.730000', '2016-04-06 14:09:30.730000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mMaestrano::Connector::Rails::IdMap Load (0.0ms)[0m  [1mSELECT  "id_maps".* FROM "id_maps" WHERE "id_maps"."connec_entity" = 'organization' AND "id_maps"."external_entity" = 'account' AND "id_maps"."external_id" = '0012800000CaxiJAAR' AND "id_maps"."organization_id" = 1 LIMIT 1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.763000', '2016-04-06 14:09:30.763000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "id_maps" ("connec_id", "connec_entity", "external_entity", "last_push_to_external", "last_push_to_connec", "organization_id", "created_at", "updated_at") VALUES ('344dr-567d', 'person', 'contact', '2016-04-04 14:09:24.645000', '2016-04-05 14:09:24.651000', 1, '2016-04-06 14:09:30.776000', '2016-04-06 14:09:30.776000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "id_maps" ("connec_id", "connec_entity", "external_id", "external_entity", "last_push_to_external", "last_push_to_connec", "organization_id", "created_at", "updated_at") VALUES ('344dr-567d', 'item', 'AE345TR', 'product2', '2016-04-04 14:09:24.645000', '2016-04-05 14:09:24.651000', 1, '2016-04-06 14:09:30.787000', '2016-04-06 14:09:30.787000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mMaestrano::Connector::Rails::IdMap Load (0.0ms)[0m  [1mSELECT  "id_maps".* FROM "id_maps" WHERE "id_maps"."external_entity" = 'product2' AND "id_maps"."connec_entity" = 'item' AND "id_maps"."connec_id" = '344dr-567d' AND "id_maps"."organization_id" = 1 LIMIT 1[0m
+org:  (default). Msg: Sending Connec! items to SageLive PricebookEntries
+org:  (default). Msg: Sending create PricebookEntry: {"price"=>45, "Product2Id"=>"AE345TR", "Pricebook2Id"=>"PR1C3B00K-1D"} to SageLive
+  [1m[35mSavepoint (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "id_maps" SET "last_push_to_external" = '2016-04-06 14:09:30.798000', "updated_at" = '2016-04-06 14:09:30.801000' WHERE "id_maps"."id" = 1[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.816000', '2016-04-06 14:09:30.816000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "id_maps" ("connec_id", "connec_entity", "external_id", "external_entity", "last_push_to_external", "last_push_to_connec", "organization_id", "created_at", "updated_at") VALUES ('6798-ada6-te43', 'person', '4567ada66', 'contact', '2016-04-04 14:09:24.645000', '2016-04-05 14:09:24.651000', 1, '2016-04-06 14:09:30.828000', '2016-04-06 14:09:30.828000')[0m
+  [1m[35mSavepoint (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+org:  (default). Msg: Sending Connec! items to SageLive PricebookEntries
+org:  (default). Msg: Sending update PricebookEntry (id=4567ada66): {"price"=>45} to SageLive
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "id_maps" SET "last_push_to_external" = '2016-04-06 14:09:30.836000', "updated_at" = '2016-04-06 14:09:30.838000' WHERE "id_maps"."id" = 1
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SharedEntitiesController#index as HTML
+  [1m[35mMaestrano::Connector::Rails::User Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."uid" IS NULL AND "users"."tenant" IS NULL LIMIT 1
+  Rendered shared_entities/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 11ms (Views: 6.9ms | ActiveRecord: 1.0ms)
+  [1m[36mSavepoint (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "organizations" ("synchronized_entities", "name", "tenant", "created_at", "updated_at") VALUES ('---
+:organization: true
+:contact_and_lead: true
+:item: true
+:opportunity: true
+', 'My company', 'default', '2016-04-06 14:09:30.897000', '2016-04-06 14:09:30.897000')
+  [1m[36mSavepoint (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by SharedEntitiesController#index as HTML
+  Rendered shared_entities/index.html.haml within layouts/application (0.0ms)
+Completed 200 OK in 9ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+  [1m[35mSavepoint (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "id_maps" ("connec_id", "connec_entity", "external_id", "external_entity", "last_push_to_external", "last_push_to_connec", "organization_id", "created_at", "updated_at") VALUES ('6798-ada6-te43', 'person', '4567ada66', 'contact', '2016-04-04 14:09:24.645000', '2016-04-05 14:09:24.651000', 1, '2016-04-06 14:09:30.926000', '2016-04-06 14:09:30.926000')[0m
+  [1m[35mSavepoint (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mMaestrano::Connector::Rails::IdMap Load (0.0ms)[0m  [1mSELECT "id_maps".* FROM "id_maps" WHERE "id_maps"."organization_id" = 1  ORDER BY "id_maps"."connec_entity" ASC[0m
